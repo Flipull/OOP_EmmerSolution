@@ -164,6 +164,7 @@ namespace UnitTests
             b.Fill(liters_water);
             //evaluate test
             Assert.IsTrue(has_triggered_event);
+            Assert.IsTrue(b.Content == b.TotalCapacity);
         }
         [TestMethod]
         public void EmmerWillOverflowTest()
@@ -196,6 +197,7 @@ namespace UnitTests
             b.Fill(liters_water);
             //evaluate test
             Assert.IsTrue(has_triggered_event);
+            Assert.IsTrue(b.Content == b.TotalCapacity);
         }
 
         /* !!!!! */

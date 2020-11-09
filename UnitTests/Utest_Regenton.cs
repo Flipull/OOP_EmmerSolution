@@ -145,6 +145,7 @@ namespace UnitTests
             b.Fill(liters_regen);
             //evaluate test
             Assert.IsTrue(has_triggered_event);
+            Assert.IsTrue(b.Content == b.TotalCapacity);
         }
         [TestMethod]
         public void RegentonWillOverflowTest()
@@ -177,6 +178,7 @@ namespace UnitTests
             b.Fill(liters_regen);
             //evaluate test
             Assert.IsTrue(has_triggered_event);
+            Assert.IsTrue(b.Content == b.TotalCapacity);
         }
 
         /* !!!!! */

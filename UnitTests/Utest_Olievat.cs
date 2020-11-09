@@ -137,6 +137,7 @@ namespace UnitTests
             b.Fill(liters_olie);
             //evaluate test
             Assert.IsTrue(has_triggered_event);
+            Assert.IsTrue(b.Content == b.TotalCapacity);
         }
         [TestMethod]
         public void OlievatWillOverflowTest()
@@ -169,6 +170,7 @@ namespace UnitTests
             b.Fill(liters_olie);
             //evaluate test
             Assert.IsTrue(has_triggered_event);
+            Assert.IsTrue(b.Content == b.TotalCapacity);
         }
 
         /* !!!!! */
