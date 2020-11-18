@@ -6,8 +6,8 @@ Uitwerking Usecase en Unit Tests
 v1.0
 verbeterpunten:
 
-		-p refactoring memberNames to pascal_casing;
-		-p refactoring eventNames to pascal_casing;
+		-p refactoring memberNames to PascalCasing;
+		-p refactoring eventNames to PascalCasing;
 		-p Naamgeving Engels/Nederlands;
 			simpele refactoring, 3 minuten
 
