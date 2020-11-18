@@ -5,6 +5,7 @@ Uitwerking Usecase en Unit Tests
 
 v1.0
 verbeterpunten:
+
 		-p refactoring memberNames to pascal_casing;
 		-p refactoring eventNames to pascal_casing;
 		-p Naamgeving Engels/Nederlands;
