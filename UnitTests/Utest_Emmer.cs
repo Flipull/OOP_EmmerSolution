@@ -229,7 +229,7 @@ namespace UnitTests
             //test exceptions when thrown during filling? 
             //as exception maybe is expected behaviour (or no change at all)
             //evaluate test
-            Assert.ThrowsException<ArgumentException>(() => b.Fill(b));
+            b.Fill(b);
             Assert.IsTrue(b.Content == liters_water);
         }
 
