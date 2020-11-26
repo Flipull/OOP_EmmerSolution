@@ -10,6 +10,8 @@ namespace LiquidContainerLibrary
 
         public Regenton() : this(Size.Small)
         { }
+        public Regenton(uint content) : this(content, Size.Small)
+        { }
         public Regenton(Size size) : this(0, size)
         { }
         public Regenton(uint content, Size size)
