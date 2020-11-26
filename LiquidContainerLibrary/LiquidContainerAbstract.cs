@@ -12,9 +12,8 @@ namespace LiquidContainerLibrary
     {
         public uint Capacity { get; protected set; }
         public uint Content { get; private set; }
-        public uint CapacityLeft {
+        private uint CapacityLeft {
             get { return Capacity - Content; }
-            private set { }
         }
         
         public event ContainerFull Full;
