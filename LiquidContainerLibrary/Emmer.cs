@@ -16,5 +16,13 @@ namespace LiquidContainerLibrary
             Fill(content);
         }
 
+        public uint Fill(LiquidContainerAbstract c)
+        {
+            if (this.Equals(c)) return 0;
+            var content_taken = Fill(c.Content);
+            c.Content -= content_taken;
+            return content_taken;
+        }
+
     }
 }

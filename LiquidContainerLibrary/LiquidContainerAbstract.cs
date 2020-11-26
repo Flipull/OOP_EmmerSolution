@@ -19,60 +19,22 @@ namespace LiquidContainerLibrary
         public event ContainerFull Full;
         public event ContainerOverflows Overflows;
         public event ContainerOverflown Overflown;
-
-        public void Fill(LiquidContainerAbstract c)
-        {
-            if (this.Equals(c)) throw new ArgumentException();
-            
-            if (CapacityLeft < c.Content)
-            {
-                var continue_filling = true;
-                if (Overflows != null)
-                    foreach (var invmethods in Overflows.GetInvocationList())
-                    {
-                        continue_filling = continue_filling &
-                            (bool)invmethods.DynamicInvoke(null);
-                        //if (!continue_filling) return;
-                        //would be more performant, but will end invocation of delegates prematurely
-                    }
-                    if (!continue_filling) return;
-            }
-
-            var content_total = c.Content;
-            c.Empty();//empty other bucket first
-
-            var content_transferred = Math.Min(content_total, CapacityLeft);
-            var overflowamount = content_total - content_transferred;
-            
-            Content += content_transferred;
-            if(overflowamount > 0)
-                Overflown?.Invoke(overflowamount);
-
-            if (CapacityLeft == 0)
-                Full?.Invoke();
-        }
         
-        public void Fill(uint amount) {
+        public uint Fill(uint amount) {
             if (CapacityLeft < amount)
             {
-                var continue_filling = true;
-                if (Overflows != null)
-                    foreach(var invmethods in Overflows.GetInvocationList() )
-                    {
-                        continue_filling = continue_filling & 
-                            (bool)invmethods.DynamicInvoke(null);
-                        if (!continue_filling) return;
-                    }
-
-                var overflowamount = amount - CapacityLeft;
-                Content += CapacityLeft;
-                Overflown?.Invoke(overflowamount);
-            } else
-            {
-                Content += amount;
+                var continue_filling = Overflows?.Invoke() ?? true;
+                if (!continue_filling) return 0;
             }
+            var transferred = Math.Min(amount, CapacityLeft);
+            var overflowamount = amount - transferred;
+            Content += transferred;
+
+            if (overflowamount > 0)
+                Overflown?.Invoke(overflowamount);
             if (CapacityLeft == 0)
                 Full?.Invoke();
+            return transferred;
         }
         public void Empty() => Empty(Content);
         public void Empty(uint amount)
