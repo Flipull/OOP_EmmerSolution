@@ -12,7 +12,7 @@ namespace LiquidContainerLibrary
     {
         public uint Capacity { get; protected set; }
         public uint Content { get; private set; }
-        private uint CapacityLeft {
+        protected uint CapacityLeft {
             get { return Capacity - Content; }
         }
         
