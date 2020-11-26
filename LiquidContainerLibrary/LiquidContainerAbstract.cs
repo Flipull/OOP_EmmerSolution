@@ -10,11 +10,10 @@ namespace LiquidContainerLibrary
 
     public abstract class LiquidContainerAbstract
     {
-        //public readonly int TotalCapacity;
-        public uint TotalCapacity { get; protected set; }
+        public uint Capacity { get; protected set; }
         public uint Content { get; private set; }
         public uint CapacityLeft {
-            get { return TotalCapacity - Content; }
+            get { return Capacity - Content; }
             private set { }
         }
         

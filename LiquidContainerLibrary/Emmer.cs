@@ -10,7 +10,7 @@ namespace LiquidContainerLibrary
             if (content < 0 || content > capacity) throw new ArgumentException();
 
             
-            TotalCapacity = capacity;
+            Capacity = capacity;
             Fill(content);
         }
     }

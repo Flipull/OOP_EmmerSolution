@@ -13,19 +13,19 @@ namespace LiquidContainerLibrary
             switch (size)
             {
                 case Size.Small:
-                    TotalCapacity = 80;
+                    Capacity = 80;
                     break;
                 case Size.Medium:
-                    TotalCapacity = 120;
+                    Capacity = 120;
                     break;
                 case Size.Large:
-                    TotalCapacity = 160;
+                    Capacity = 160;
                     break;
                 default:
                     throw new ArgumentException();
             }
 
-            if (content < 0 || content > TotalCapacity)
+            if (content < 0 || content > Capacity)
                 throw new ArgumentException();
 
             Fill(content);

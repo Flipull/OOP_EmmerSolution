@@ -33,7 +33,7 @@ namespace UnitTests
             
             //evaluate test
             Assert.IsTrue(b.Content == default_inhoud);
-            Assert.IsTrue(b.TotalCapacity == default_maxinhoud);
+            Assert.IsTrue(b.Capacity == default_maxinhoud);
             Assert.IsTrue(b.CapacityLeft == default_maxinhoud - default_inhoud);
         }
         [TestMethod]
@@ -47,7 +47,7 @@ namespace UnitTests
 
             //evaluate test
             Assert.IsTrue(b.Content == inhoud);
-            Assert.IsTrue(b.TotalCapacity == max_inhoud);
+            Assert.IsTrue(b.Capacity == max_inhoud);
             Assert.IsTrue(b.CapacityLeft == max_inhoud - inhoud);
         }
         [TestMethod]
@@ -90,7 +90,7 @@ namespace UnitTests
 
             //evaluate test
             Assert.IsTrue(b.Content == inhoud);
-            Assert.IsTrue(b.TotalCapacity == max_inhoud);
+            Assert.IsTrue(b.Capacity == max_inhoud);
             Assert.IsTrue(b.CapacityLeft == max_inhoud - inhoud);
         }
         /*
@@ -164,7 +164,7 @@ namespace UnitTests
             b.Fill(liters_water);
             //evaluate test
             Assert.IsTrue(has_triggered_event);
-            Assert.IsTrue(b.Content == b.TotalCapacity);
+            Assert.IsTrue(b.Content == b.Capacity);
         }
         [TestMethod]
         public void EmmerWillOverflowTest()
@@ -197,7 +197,7 @@ namespace UnitTests
             b.Fill(liters_water);
             //evaluate test
             Assert.IsTrue(has_triggered_event);
-            Assert.IsTrue(b.Content == b.TotalCapacity);
+            Assert.IsTrue(b.Content == b.Capacity);
         }
 
         /* !!!!! */

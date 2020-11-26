@@ -18,7 +18,7 @@ namespace UnitTests
             var b = new Regenton(size: type_inhoud);
 
             //evaluate test
-            Assert.IsTrue(b.TotalCapacity == verwachte_maxinhoud);
+            Assert.IsTrue(b.Capacity == verwachte_maxinhoud);
             Assert.IsTrue(b.Content == verwachte_inhoud);
         }
         [TestMethod]
@@ -31,7 +31,7 @@ namespace UnitTests
             var b = new Regenton(size: type_inhoud);
 
             //evaluate test
-            Assert.IsTrue(b.TotalCapacity == verwachte_maxinhoud);
+            Assert.IsTrue(b.Capacity == verwachte_maxinhoud);
         }
         [TestMethod]
         public void RegentonAreCustomValues2()
@@ -43,7 +43,7 @@ namespace UnitTests
             var b = new Regenton(size: type_inhoud);
 
             //evaluate test
-            Assert.IsTrue(b.TotalCapacity == verwachte_maxinhoud);
+            Assert.IsTrue(b.Capacity == verwachte_maxinhoud);
         }
         public void RegentonCanContentBeLargerThenTotalCapacity()
         {
@@ -64,7 +64,7 @@ namespace UnitTests
             var b = new Regenton(inhoud);
             //evaluate test
             Assert.IsTrue(b.Content == inhoud);
-            Assert.IsTrue(b.TotalCapacity == default_maxinhoud);
+            Assert.IsTrue(b.Capacity == default_maxinhoud);
             Assert.IsTrue(b.CapacityLeft == default_maxinhoud - inhoud);
         }
 
@@ -78,7 +78,7 @@ namespace UnitTests
             var b = new Regenton(inhoud);
             //evaluate test
             Assert.IsTrue(b.Content == inhoud);
-            Assert.IsTrue(b.TotalCapacity == default_maxinhoud);
+            Assert.IsTrue(b.Capacity == default_maxinhoud);
             Assert.IsTrue(b.CapacityLeft == default_maxinhoud - inhoud);
         }
 
@@ -145,7 +145,7 @@ namespace UnitTests
             b.Fill(liters_regen);
             //evaluate test
             Assert.IsTrue(has_triggered_event);
-            Assert.IsTrue(b.Content == b.TotalCapacity);
+            Assert.IsTrue(b.Content == b.Capacity);
         }
         [TestMethod]
         public void RegentonWillOverflowTest()
@@ -178,7 +178,7 @@ namespace UnitTests
             b.Fill(liters_regen);
             //evaluate test
             Assert.IsTrue(has_triggered_event);
-            Assert.IsTrue(b.Content == b.TotalCapacity);
+            Assert.IsTrue(b.Content == b.Capacity);
         }
 
         /* !!!!! */

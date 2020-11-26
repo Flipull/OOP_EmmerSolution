@@ -9,7 +9,7 @@ namespace LiquidContainerLibrary
         public const uint DefaultCapacity = 159;
         public Olievat(uint content = 0)
         {
-            TotalCapacity = Olievat.DefaultCapacity;
+            Capacity = Olievat.DefaultCapacity;
             Fill(content);
         }
     }
