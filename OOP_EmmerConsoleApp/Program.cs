@@ -33,18 +33,18 @@ namespace OOP_EmmerConsoleApp
             var o1 = new Olievat(25);
             var r1 = new Regenton(5, Regenton.Size.Small);
 
-            e1.isFull += FullListener;
-            e1.willOverflow += OverflowContinueingListener;
-            e1.willOverflow += OverflowStoppingListener;
-            e1.hasOverflown += OverflownListener;
+            e1.Full += FullListener;
+            e1.Overflows += OverflowContinueingListener;
+            e1.Overflows += OverflowStoppingListener;
+            e1.Overflown += OverflownListener;
 
-            o1.isFull += FullListener;
-            o1.willOverflow += OverflowContinueingListener;
-            o1.hasOverflown += OverflownListener;
+            o1.Full += FullListener;
+            o1.Overflows += OverflowContinueingListener;
+            o1.Overflown += OverflownListener;
 
-            r1.isFull += FullListener;
-            r1.willOverflow += OverflowContinueingListener;
-            r1.hasOverflown += OverflownListener;
+            r1.Full += FullListener;
+            r1.Overflows += OverflowContinueingListener;
+            r1.Overflown += OverflownListener;
 
             Console.WriteLine("e3->e1");
             e1.Fill(e3);

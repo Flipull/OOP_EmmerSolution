@@ -138,9 +138,9 @@ namespace UnitTests
             uint liters_regen = 80/*Liter*/;
             var b = new Regenton();
             bool has_triggered_event = false;
-            b.isFull += () => { has_triggered_event = true; };
-            b.willOverflow += () => { Assert.Fail(); return true; };
-            b.hasOverflown += (uint amount) => { Assert.Fail(); };
+            b.Full += () => { has_triggered_event = true; };
+            b.Overflows += () => { Assert.Fail(); return true; };
+            b.Overflown += (uint amount) => { Assert.Fail(); };
             //do test
             b.Fill(liters_regen);
             //evaluate test
@@ -155,7 +155,7 @@ namespace UnitTests
             uint default_inhoud = 0;
             var b = new Regenton();
             bool has_triggered_event = false;
-            b.willOverflow += () => { has_triggered_event = true; return false; };
+            b.Overflows += () => { has_triggered_event = true; return false; };
             //do test
             b.Fill(liters_regen);
             //evaluate test
@@ -170,7 +170,7 @@ namespace UnitTests
             uint overflow_amount = 5;
             var b = new Regenton();
             bool has_triggered_event = false;
-            b.hasOverflown += (uint amount) => {
+            b.Overflown += (uint amount) => {
                 Assert.IsTrue(amount == overflow_amount);
                 has_triggered_event = true;
             };
@@ -189,9 +189,9 @@ namespace UnitTests
             uint liters_regen = 200/*Liter*/;
             uint default_inhoud = 0;
             var b = new Regenton();
-            b.willOverflow += () => { return false; };
-            b.willOverflow += () => { return true; };
-            b.hasOverflown += (uint amount) => { Assert.Fail(); };
+            b.Overflows += () => { return false; };
+            b.Overflows += () => { return true; };
+            b.Overflown += (uint amount) => { Assert.Fail(); };
             //do test
             b.Fill(liters_regen);
             //evaluate test
@@ -204,8 +204,8 @@ namespace UnitTests
             //init test
             uint liters_regen = 60/*Liter*/;
             var b = new Regenton(liters_regen);
-            b.hasOverflown += (uint amount) => Assert.Fail();
-            b.willOverflow += () => { Assert.Fail(); return false; };
+            b.Overflown += (uint amount) => Assert.Fail();
+            b.Overflows += () => { Assert.Fail(); return false; };
             //do test
             //test exceptions when thrown during filling? 
             //as exception maybe is expected behaviour (or no change at all)

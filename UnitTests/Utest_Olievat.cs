@@ -130,9 +130,9 @@ namespace UnitTests
             uint liters_olie = 159/*Liter*/;
             var b = new Olievat();
             bool has_triggered_event = false;
-            b.isFull += () => { has_triggered_event = true; };
-            b.willOverflow += () => { Assert.Fail(); return true; };
-            b.hasOverflown += (uint amount) => { Assert.Fail(); };
+            b.Full += () => { has_triggered_event = true; };
+            b.Overflows += () => { Assert.Fail(); return true; };
+            b.Overflown += (uint amount) => { Assert.Fail(); };
             //do test
             b.Fill(liters_olie);
             //evaluate test
@@ -147,7 +147,7 @@ namespace UnitTests
             uint default_inhoud = 0;
             var b = new Olievat();
             bool has_triggered_event = false;
-            b.willOverflow += () => { has_triggered_event = true; return false; };
+            b.Overflows += () => { has_triggered_event = true; return false; };
             //do test
             b.Fill(liters_olie);
             //evaluate test
@@ -162,7 +162,7 @@ namespace UnitTests
             uint overflow_amount = 41;
             var b = new Olievat();
             bool has_triggered_event = false;
-            b.hasOverflown += (uint amount) => {
+            b.Overflown += (uint amount) => {
                 Assert.IsTrue(amount == overflow_amount);
                 has_triggered_event = true;
             };
@@ -181,9 +181,9 @@ namespace UnitTests
             uint liters_olie = 160/*Liter*/;
             uint default_inhoud = 0;
             var b = new Olievat();
-            b.willOverflow += () => { return false; };
-            b.willOverflow += () => { return true; };
-            b.hasOverflown += (uint amount) => { Assert.Fail(); };
+            b.Overflows += () => { return false; };
+            b.Overflows += () => { return true; };
+            b.Overflown += (uint amount) => { Assert.Fail(); };
             //do test
             b.Fill(liters_olie);
             //evaluate test
@@ -196,8 +196,8 @@ namespace UnitTests
             //init test
             uint liters_olie = 100/*Liter*/;
             var b = new Olievat(liters_olie);
-            b.hasOverflown += (uint amount) => Assert.Fail();
-            b.willOverflow += () => { Assert.Fail(); return false; };
+            b.Overflown += (uint amount) => Assert.Fail();
+            b.Overflows += () => { Assert.Fail(); return false; };
             //do test
 
             //test exceptions when thrown during filling? 

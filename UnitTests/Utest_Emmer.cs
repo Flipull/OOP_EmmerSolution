@@ -157,9 +157,9 @@ namespace UnitTests
             uint liters_water = 12/*Liter*/;
             var b = new Emmer();
             bool has_triggered_event = false;
-            b.isFull += () => { has_triggered_event = true; };
-            b.willOverflow += () => { Assert.Fail(); return true; };
-            b.hasOverflown += (uint amount) => { Assert.Fail(); };
+            b.Full += () => { has_triggered_event = true; };
+            b.Overflows += () => { Assert.Fail(); return true; };
+            b.Overflown += (uint amount) => { Assert.Fail(); };
             //do test
             b.Fill(liters_water);
             //evaluate test
@@ -174,7 +174,7 @@ namespace UnitTests
             uint default_inhoud = 0;
             var b = new Emmer();
             bool has_triggered_event = false;
-            b.willOverflow += () => { has_triggered_event = true; return false; };
+            b.Overflows += () => { has_triggered_event = true; return false; };
             //do test
             b.Fill(liters_water);
             //evaluate test
@@ -189,7 +189,7 @@ namespace UnitTests
             uint overflow_amount = 8;//based on default 12L;20-12=8
             var b = new Emmer();
             bool has_triggered_event = false;
-            b.hasOverflown += (uint amount) => { 
+            b.Overflown += (uint amount) => { 
                     Assert.IsTrue(amount == overflow_amount);
                     has_triggered_event = true;
             };
@@ -208,9 +208,9 @@ namespace UnitTests
             uint liters_water = 20/*Liter*/;
             uint default_inhoud = 0;
             var b = new Emmer();
-            b.willOverflow += () => { return false; };
-            b.willOverflow += () => { return true; };
-            b.hasOverflown += (uint amount) => { Assert.Fail(); };
+            b.Overflows += () => { return false; };
+            b.Overflows += () => { return true; };
+            b.Overflown += (uint amount) => { Assert.Fail(); };
             //do test
             b.Fill(liters_water);
             //evaluate test
@@ -223,8 +223,8 @@ namespace UnitTests
             //init test
             uint liters_water = 10/*Liter*/;
             var b = new Emmer(liters_water);
-            b.willOverflow += () => { Assert.Fail(); return true; };
-            b.hasOverflown += (uint amount) => Assert.Fail();
+            b.Overflows += () => { Assert.Fail(); return true; };
+            b.Overflown += (uint amount) => Assert.Fail();
             //do test
 
             //test exceptions when thrown during filling? 

@@ -4,9 +4,9 @@ using System.Text;
 
 namespace LiquidContainerLibrary
 {
-    public delegate void IsFull();
-    public delegate bool WillOverflow();
-    public delegate void HasOverflown(uint amount);
+    public delegate void ContainerFull();
+    public delegate bool ContainerOverflows();
+    public delegate void ContainerOverflown(uint amount);
 
     public abstract class LiquidContainerAbstract
     {
@@ -18,9 +18,9 @@ namespace LiquidContainerLibrary
             private set { }
         }
         
-        public event IsFull isFull;
-        public event WillOverflow willOverflow;
-        public event HasOverflown hasOverflown;
+        public event ContainerFull Full;
+        public event ContainerOverflows Overflows;
+        public event ContainerOverflown Overflown;
 
         public void Fill(LiquidContainerAbstract c)
         {
@@ -29,8 +29,8 @@ namespace LiquidContainerLibrary
             if (CapacityLeft < c.Content)
             {
                 var continue_filling = true;
-                if (willOverflow != null)
-                    foreach (var invmethods in willOverflow.GetInvocationList())
+                if (Overflows != null)
+                    foreach (var invmethods in Overflows.GetInvocationList())
                     {
                         continue_filling = continue_filling &
                             (bool)invmethods.DynamicInvoke(null);
@@ -48,18 +48,18 @@ namespace LiquidContainerLibrary
             
             Content += content_transferred;
             if(overflowamount > 0)
-                hasOverflown?.Invoke(overflowamount);
+                Overflown?.Invoke(overflowamount);
 
             if (CapacityLeft == 0)
-                isFull?.Invoke();
+                Full?.Invoke();
         }
         
         public void Fill(uint amount) {
             if (CapacityLeft < amount)
             {
                 var continue_filling = true;
-                if (willOverflow != null)
-                    foreach(var invmethods in willOverflow.GetInvocationList() )
+                if (Overflows != null)
+                    foreach(var invmethods in Overflows.GetInvocationList() )
                     {
                         continue_filling = continue_filling & 
                             (bool)invmethods.DynamicInvoke(null);
@@ -68,13 +68,13 @@ namespace LiquidContainerLibrary
 
                 var overflowamount = amount - CapacityLeft;
                 Content += CapacityLeft;
-                hasOverflown?.Invoke(overflowamount);
+                Overflown?.Invoke(overflowamount);
             } else
             {
                 Content += amount;
             }
             if (CapacityLeft == 0)
-                isFull?.Invoke();
+                Full?.Invoke();
         }
         public void Empty() => Empty(Content);
         public void Empty(uint amount)
