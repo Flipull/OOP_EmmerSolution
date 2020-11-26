@@ -201,22 +201,6 @@ namespace UnitTests
 
         /* !!!!! */
         [TestMethod]
-        public void EmmerStopOverflowingCrazyTest()
-        {
-            //init test
-            uint liters_water = 20/*Liter*/;
-            uint default_inhoud = 0;
-            var b = new Emmer();
-            b.Overflows += () => { return false; };
-            b.Overflows += () => { return true; };
-            b.Overflown += (uint amount) => { Assert.Fail(); };
-            //do test
-            b.Fill(liters_water);
-            //evaluate test
-            Assert.IsTrue(b.Content == default_inhoud);
-        }
-        /* !!!!! */
-        [TestMethod]
         public void EmmerCanBeFilledByItself()
         {
             //init test

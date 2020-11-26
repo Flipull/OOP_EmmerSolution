@@ -168,22 +168,5 @@ namespace UnitTests
             Assert.IsTrue(has_triggered_event);
             Assert.IsTrue(b.Content == b.Capacity);
         }
-
-        /* !!!!! */
-        [TestMethod]
-        public void RegentonStopOverflowingCrazyTest()
-        {
-            //init test
-            uint liters_regen = 200/*Liter*/;
-            uint default_inhoud = 0;
-            var b = new Regenton();
-            b.Overflows += () => { return false; };
-            b.Overflows += () => { return true; };
-            b.Overflown += (uint amount) => { Assert.Fail(); };
-            //do test
-            b.Fill(liters_regen);
-            //evaluate test
-            Assert.IsTrue(b.Content == default_inhoud);
-        }
     }
 }

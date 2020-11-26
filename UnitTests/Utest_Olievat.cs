@@ -156,22 +156,5 @@ namespace UnitTests
             Assert.IsTrue(has_triggered_event);
             Assert.IsTrue(b.Content == b.Capacity);
         }
-
-        /* !!!!! */
-        [TestMethod]
-        public void OlievatStopOverflowingCrazyTest()
-        {
-            //init test
-            uint liters_olie = 160/*Liter*/;
-            uint default_inhoud = 0;
-            var b = new Olievat();
-            b.Overflows += () => { return false; };
-            b.Overflows += () => { return true; };
-            b.Overflown += (uint amount) => { Assert.Fail(); };
-            //do test
-            b.Fill(liters_olie);
-            //evaluate test
-            Assert.IsTrue(b.Content == default_inhoud);
-        }
     }
 }
