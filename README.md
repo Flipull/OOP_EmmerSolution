@@ -12,8 +12,9 @@ verbeterpunten:
 			simpele refactoring, 3 minuten
 
 		-p 'readonly' constant values naar acces modifier 'constant'
-		-d Content publieke property maken;
-			access modifier aanpassen; 1 minuut
+		-d Content publieke property maken; custom-implementatie bestaat uit het limiteren van Content aan [0..Capacity]
+			-p Tests implementeren voor Content property (minimum, maximum)
+				access modifier aanpassen; 1 minuut
 
 		-pd hernoem TotalCapacity naar Capacity;
 			simpele refactoring; 1 minuut
