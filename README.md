@@ -6,8 +6,10 @@ Uitwerking Usecase en Unit Tests
 v1.0
 verbeterpunten:
 
-		-p refactoring memberNames to PascalCasing;
-		-p refactoring eventNames to PascalCasing;
+		-p refactoring property names to PascalCasing;
+		-p refactoring event names to PascalCasing;
+			+ hernoem VerbNoun/WerkwoordZelfstandignaamwoord naar Noun/Zelfstandignaamwoord 
+				(IsFull-> Full, WillOverflow->Overflows, HasOverflown->Overflown )
 		-p Naamgeving Engels/Nederlands;
 			simpele refactoring, 3 minuten
 
