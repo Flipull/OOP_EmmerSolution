@@ -30,7 +30,7 @@ namespace UnitTests
             uint default_maxinhoud = 12;
             //do test
             var b = new Emmer();
-            
+
             //evaluate test
             Assert.IsTrue(b.Content == default_inhoud);
             Assert.IsTrue(b.Capacity == default_maxinhoud);
@@ -188,9 +188,10 @@ namespace UnitTests
             uint overflow_amount = 8;//based on default 12L;20-12=8
             var b = new Emmer();
             bool has_triggered_event = false;
-            b.Overflown += (uint amount) => { 
-                    Assert.IsTrue(amount == overflow_amount);
-                    has_triggered_event = true;
+            b.Overflown += (uint amount) =>
+            {
+                Assert.IsTrue(amount == overflow_amount);
+                has_triggered_event = true;
             };
             //do test
             b.Fill(liters_water);
@@ -217,5 +218,17 @@ namespace UnitTests
             Assert.IsTrue(b.Content == liters_water);
         }
 
+
+        [TestMethod]
+        public void EmmerTestContentSetterOutOfRange()
+        {
+            //init test
+            uint test_inhoud = 13;
+            //do test
+            var b = new Emmer();
+            //evaluate test
+            Assert.ThrowsException<ArgumentOutOfRangeException>(
+                () => b.Content = test_inhoud);
+        }
     }
 }

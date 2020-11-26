@@ -156,5 +156,18 @@ namespace UnitTests
             Assert.IsTrue(has_triggered_event);
             Assert.IsTrue(b.Content == b.Capacity);
         }
+
+        [TestMethod]
+        public void OlievatTestContentSetterOutOfRange()
+        {
+            //init test
+            uint test_inhoud = 160;//Olievat.DefaultCapacity+1;
+            //do test
+            var b = new Olievat();
+            //evaluate test
+            Assert.ThrowsException<ArgumentOutOfRangeException>(
+                () => b.Content = test_inhoud);
+        }
+
     }
 }

@@ -168,5 +168,17 @@ namespace UnitTests
             Assert.IsTrue(has_triggered_event);
             Assert.IsTrue(b.Content == b.Capacity);
         }
+
+        [TestMethod]
+        public void RegentonTestContentSetterOutOfRange()
+        {
+            //init test
+            uint test_inhoud = 81; //(uint)Regenton.Size.Small+1;
+            //do test
+            var b = new Regenton();
+            //evaluate test
+            Assert.ThrowsException<ArgumentOutOfRangeException>(
+                () => b.Content = test_inhoud);
+        }
     }
 }
