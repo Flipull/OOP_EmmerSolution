@@ -53,18 +53,20 @@ namespace UnitTests
         {
             //init test
             uint maxinhoud = 0/*Liter*/;
+            uint default_inhoud = 0;
             //do test
             //evaluate test
-            Assert.ThrowsException<ArgumentException>(() => new Emmer(capacity: maxinhoud));
+            Assert.ThrowsException<ArgumentException>(() => new Emmer(default_inhoud, maxinhoud));
         }
         [TestMethod]
         public void EmmerMaxCapacityOutofBoundary2()
         {
             //init test
             uint maxinhoud = 9/*Liter*/;
+            uint default_inhoud = 0;
             //do test
             //evaluate test
-            Assert.ThrowsException<ArgumentException>(() => new Emmer(capacity: maxinhoud));
+            Assert.ThrowsException<ArgumentException>(() => new Emmer(default_inhoud, maxinhoud));
         }
         public void EmmerCanContentBeLargerThenTotalCapacity()
         {
