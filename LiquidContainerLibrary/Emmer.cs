@@ -4,7 +4,9 @@ namespace LiquidContainerLibrary
 {
     public class Emmer : LiquidContainerAbstract
     {
-        public Emmer(uint content = 0, uint capacity = 12)
+        public Emmer(): this(0, 12)
+        { }
+        public Emmer(uint content, uint capacity)
         {
             if (capacity < 10) throw new ArgumentException();
             if (content < 0 || content > capacity) throw new ArgumentException();
@@ -13,5 +15,6 @@ namespace LiquidContainerLibrary
             Capacity = capacity;
             Fill(content);
         }
+
     }
 }
