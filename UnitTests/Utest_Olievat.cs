@@ -19,7 +19,6 @@ namespace UnitTests
             //evaluate test
             Assert.IsTrue(b.Content == default_inhoud);
             Assert.IsTrue(b.Capacity == default_maxinhoud);
-            Assert.IsTrue(b.CapacityLeft == default_maxinhoud - default_inhoud);
         }
         [TestMethod]
         public void OlievatAreCustomValuesSet()
@@ -32,7 +31,6 @@ namespace UnitTests
             
             //evaluate test
             Assert.IsTrue(b.Content == inhoud);
-            Assert.IsTrue(b.CapacityLeft == default_maxinhoud - inhoud);
         }
         public void OlievatCanContentBeLargerThenTotalCapacity()
         {
@@ -56,7 +54,6 @@ namespace UnitTests
 
             //evaluate test
             Assert.IsTrue(b.Content == inhoud);
-            Assert.IsTrue(b.CapacityLeft == default_maxinhoud - inhoud);
         }
         [TestMethod]
         public void OlievatCustomMaxValuesInclusive()
@@ -71,7 +68,6 @@ namespace UnitTests
             
             //evaluate test
             Assert.IsTrue(b.Content == inhoud);
-            Assert.IsTrue(b.CapacityLeft == default_maxinhoud - inhoud);
         }
 
         [TestMethod]

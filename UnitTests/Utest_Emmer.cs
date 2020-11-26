@@ -34,7 +34,6 @@ namespace UnitTests
             //evaluate test
             Assert.IsTrue(b.Content == default_inhoud);
             Assert.IsTrue(b.Capacity == default_maxinhoud);
-            Assert.IsTrue(b.CapacityLeft == default_maxinhoud - default_inhoud);
         }
         [TestMethod]
         public void EmmerAreCustomValuesSet()
@@ -48,7 +47,6 @@ namespace UnitTests
             //evaluate test
             Assert.IsTrue(b.Content == inhoud);
             Assert.IsTrue(b.Capacity == max_inhoud);
-            Assert.IsTrue(b.CapacityLeft == max_inhoud - inhoud);
         }
         [TestMethod]
         public void EmmerMaxCapacityOutofBoundary1()
@@ -91,7 +89,6 @@ namespace UnitTests
             //evaluate test
             Assert.IsTrue(b.Content == inhoud);
             Assert.IsTrue(b.Capacity == max_inhoud);
-            Assert.IsTrue(b.CapacityLeft == max_inhoud - inhoud);
         }
         /*
         [TestMethod]

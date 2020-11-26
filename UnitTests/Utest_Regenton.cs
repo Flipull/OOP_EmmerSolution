@@ -79,7 +79,6 @@ namespace UnitTests
             //evaluate test
             Assert.IsTrue(b.Content == inhoud);
             Assert.IsTrue(b.Capacity == default_maxinhoud);
-            Assert.IsTrue(b.CapacityLeft == default_maxinhoud - inhoud);
         }
 
         [TestMethod]
