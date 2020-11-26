@@ -94,18 +94,6 @@ namespace UnitTests
             Assert.IsTrue(b.Content == liters_regen);
         }
         [TestMethod]
-        public void RegentonVulTest2()
-        {
-            //init test
-            uint liters_regen = 5/*Liter*/;
-            var donor = new Regenton(liters_regen);
-            var b = new Regenton();
-            //do test
-            b.Fill(donor);
-            //evaluate test
-            Assert.IsTrue(b.Content == liters_regen);
-        }
-        [TestMethod]
         public void RegentonLeegTest1()
         {
             //init test

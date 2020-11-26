@@ -82,18 +82,6 @@ namespace UnitTests
             Assert.IsTrue(b.Content == liters_olie);
         }
         [TestMethod]
-        public void OlievatVulTest2()
-        {
-            //init test
-            uint liters_olie = 5/*Liter*/;
-            var donor = new Olievat(liters_olie);
-            var b = new Olievat();
-            //do test
-            b.Fill(donor);
-            //evaluate test
-            Assert.IsTrue(b.Content == liters_olie);
-        }
-        [TestMethod]
         public void OlievatLeegTest1()
         {
             //init test
