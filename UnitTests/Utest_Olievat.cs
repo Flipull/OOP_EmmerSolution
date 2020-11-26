@@ -185,22 +185,5 @@ namespace UnitTests
             //evaluate test
             Assert.IsTrue(b.Content == default_inhoud);
         }
-        /* !!!!! */
-        [TestMethod]
-        public void OlievatCanBeFilledByItself()
-        {
-            //init test
-            uint liters_olie = 100/*Liter*/;
-            var b = new Olievat(liters_olie);
-            b.Overflown += (uint amount) => Assert.Fail();
-            b.Overflows += () => { Assert.Fail(); return false; };
-            //do test
-
-            //test exceptions when thrown during filling? 
-            //as exception maybe is expected behaviour (or no change at all)
-            //evaluate test
-            Assert.ThrowsException<ArgumentException>(() => b.Fill(b));
-            Assert.IsTrue(b.Content == liters_olie);
-        }
     }
 }

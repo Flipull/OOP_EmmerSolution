@@ -197,22 +197,5 @@ namespace UnitTests
             //evaluate test
             Assert.IsTrue(b.Content == default_inhoud);
         }
-        /* !!!!! */
-        [TestMethod]
-        public void RegentonCanBeFilledByItself()
-        {
-            //init test
-            uint liters_regen = 60/*Liter*/;
-            var b = new Regenton(liters_regen);
-            b.Overflown += (uint amount) => Assert.Fail();
-            b.Overflows += () => { Assert.Fail(); return false; };
-            //do test
-            //test exceptions when thrown during filling? 
-            //as exception maybe is expected behaviour (or no change at all)
-            //evaluate test
-            Assert.ThrowsException<ArgumentException>(() => b.Fill(b));
-            Assert.IsTrue(b.Content == liters_regen);
-        }
-
     }
 }
