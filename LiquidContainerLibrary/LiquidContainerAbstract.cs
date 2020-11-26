@@ -11,7 +11,21 @@ namespace LiquidContainerLibrary
     public abstract class LiquidContainerAbstract
     {
         public uint Capacity { get; protected set; }
-        public uint Content { get; private set; }
+        
+        private uint _content = 0;
+        public uint Content {
+            get 
+            { 
+                return _content; 
+            }
+            set 
+            {
+                if (value >= 0 && value <= Capacity)
+                    _content = value;
+                else
+                    throw new ArgumentOutOfRangeException();
+            } 
+        }
         protected uint CapacityLeft {
             get { return Capacity - Content; }
         }
