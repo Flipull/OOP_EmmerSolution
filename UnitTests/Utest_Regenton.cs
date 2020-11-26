@@ -15,7 +15,7 @@ namespace UnitTests
             uint verwachte_maxinhoud = 80;
             uint verwachte_inhoud = 0;
             //do test
-            var b = new Regenton(size: type_inhoud);
+            var b = new Regenton();
 
             //evaluate test
             Assert.IsTrue(b.Capacity == verwachte_maxinhoud);
@@ -28,8 +28,8 @@ namespace UnitTests
             var type_inhoud = Regenton.Size.Medium;
             uint verwachte_maxinhoud = 120;
             //do test
-            var b = new Regenton(size: type_inhoud);
-
+            var b = new Regenton(type_inhoud);
+            
             //evaluate test
             Assert.IsTrue(b.Capacity == verwachte_maxinhoud);
         }
@@ -39,10 +39,12 @@ namespace UnitTests
             //init test
             var type_inhoud = Regenton.Size.Large;
             uint verwachte_maxinhoud = 160;
+            uint verwachte_inhoud = 10;
             //do test
-            var b = new Regenton(size: type_inhoud);
+            var b = new Regenton(verwachte_inhoud, type_inhoud);
 
             //evaluate test
+            Assert.IsTrue(b.Content == verwachte_inhoud);
             Assert.IsTrue(b.Capacity == verwachte_maxinhoud);
         }
         public void RegentonCanContentBeLargerThenTotalCapacity()
@@ -65,7 +67,6 @@ namespace UnitTests
             //evaluate test
             Assert.IsTrue(b.Content == inhoud);
             Assert.IsTrue(b.Capacity == default_maxinhoud);
-            Assert.IsTrue(b.CapacityLeft == default_maxinhoud - inhoud);
         }
 
         [TestMethod]
