@@ -6,14 +6,17 @@ Uitwerking Usecase en Unit Tests
 v1.0
 verbeterpunten:
 
-		-p refactoring memberNames to PascalCasing;
-		-p refactoring eventNames to PascalCasing;
+		-p refactoring property names to PascalCasing;
+		-p refactoring event names to PascalCasing;
+			+ hernoem VerbNoun/WerkwoordZelfstandignaamwoord naar Noun/Zelfstandignaamwoord 
+				(IsFull-> Full, WillOverflow->Overflows, HasOverflown->Overflown )
 		-p Naamgeving Engels/Nederlands;
 			simpele refactoring, 3 minuten
 
 		-p 'readonly' constant values naar acces modifier 'constant'
-		-d Content publieke property maken;
-			access modifier aanpassen; 1 minuut
+		-d Content publieke property maken; custom-implementatie bestaat uit het limiteren van Content aan [0..Capacity]
+			-p Tests implementeren voor Content property (minimum, maximum)
+				access modifier aanpassen; 1 minuut
 
 		-pd hernoem TotalCapacity naar Capacity;
 			simpele refactoring; 1 minuut
@@ -32,8 +35,8 @@ verbeterpunten:
 		-pd CapacityLeft overbodig/private maken
 			access modifier aanpassen; 1 minuut
 		-p Dubbele code in Fill()/Fill(b)
-			+d emmer vullen met emmer, laat de oude emmer ongemoeid (dus Content word niet verplaatst, maar gecopieerd)
-				en laat de verantwoordelijkheid van het oude emmer 
+			+d Fill(obj)-definitie => emmer vullen met emmer; 
+				call Fill(), return waarde van aantal liters dat gevuld is, en verwijder dat aantal van de oude emmer achteraf
 
 		-pd multi-cast event verwijderen
 			+d baseer resultaat op laatste event-result
