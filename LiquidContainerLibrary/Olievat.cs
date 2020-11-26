@@ -6,7 +6,7 @@ namespace LiquidContainerLibrary
 {
     public class Olievat : LiquidContainerAbstract
     {
-        public static readonly uint DefaultCapacity = 159;
+        public const uint DefaultCapacity = 159;
         public Olievat(uint content = 0)
         {
             TotalCapacity = Olievat.DefaultCapacity;
