@@ -4,7 +4,9 @@ namespace LiquidContainerLibrary
 {
     public class Emmer : LiquidContainerAbstract
     {
-        public Emmer(): this(0, 12)
+        public Emmer() : this(0, 12)
+        { }
+        public Emmer(uint content) : this(content, 12)
         { }
         public Emmer(uint content, uint capacity)
         {
