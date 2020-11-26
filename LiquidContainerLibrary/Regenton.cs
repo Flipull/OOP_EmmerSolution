@@ -12,7 +12,7 @@ namespace LiquidContainerLibrary
         { }
         public Regenton(Size size) : this(0, size)
         { }
-        public Regenton(uint content, Size size = Size.Small)
+        public Regenton(uint content, Size size)
         {
             Capacity = (uint)size;
             
