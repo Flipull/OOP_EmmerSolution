@@ -52,11 +52,6 @@ namespace OOP_EmmerConsoleApp
             Console.WriteLine("50L->o1");
             o1.Fill(50);
             Console.WriteLine("e1->o1");
-            o1.Fill(e1);
-            Console.WriteLine("e3->o1");
-            o1.Fill(e3);
-            Console.WriteLine("o1->r1");
-            r1.Fill(o1);
         }
     }
 }
