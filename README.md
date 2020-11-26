@@ -35,8 +35,8 @@ verbeterpunten:
 		-pd CapacityLeft overbodig/private maken
 			access modifier aanpassen; 1 minuut
 		-p Dubbele code in Fill()/Fill(b)
-			+d emmer vullen met emmer, laat de oude emmer ongemoeid (dus Content word niet verplaatst, maar gecopieerd)
-				en laat de verantwoordelijkheid van het oude emmer 
+			+d Fill(obj)-definitie => emmer vullen met emmer; 
+				call Fill(), return waarde van aantal liters dat gevuld is, en verwijder dat aantal van de oude emmer achteraf
 
 		-pd multi-cast event verwijderen
 			+d baseer resultaat op laatste event-result
