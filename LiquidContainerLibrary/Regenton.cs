@@ -8,7 +8,9 @@ namespace LiquidContainerLibrary
     {
         public enum Size { Small = 80, Medium = 120, Large = 160};
 
-        public Regenton(): this(0, Size.Small)
+        public Regenton() : this(Size.Small)
+        { }
+        public Regenton(Size size) : this(0, size)
         { }
         public Regenton(uint content, Size size = Size.Small)
         {
